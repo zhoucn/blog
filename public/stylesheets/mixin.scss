@@ -1,0 +1,34 @@
+@mixin grad($begin, $end, $direction:top){
+  background: -webkit-linear-gradient($direction, $begin, $end);
+  background: -o-linear-gradient($direction, $begin, $end);
+  background: -moz-linear-gradient($direction, $begin, $end);
+  background: linear-gradient($direction, $begin, $end);
+}
+
+@mixin t-middle(){
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+@mixin t-origin($x, $y){
+  transform-origin: $x $y;
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+}
+
+@mixin transform($r){
+  transform: $r;
+  -webkit-transform: $r;
+  -moz-transform: $r;
+  -o-transform: $r;
+}
+
+@mixin transition($r){
+  transition: $r;
+  -webkit-transition: $r;
+  -moz-transition: $r;
+  -o-transition: $r;
+}

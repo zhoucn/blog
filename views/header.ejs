@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="/images/logo.jpg" alt="logo" />
+            <ul>
+                <li><a href="/index"><span>首页</span><i class="fa fa-hand-pointer-o"></i></a></li>
+                <li><a href="/article"><span>文章</span><i class="fa fa-hand-pointer-o"></i></a></li>
+                <li><a href="/ask"><span>提问</span><i class="fa fa-hand-pointer-o"></i></a></li>
+                <li><a href="/personal"><span>个人</span><i class="fa fa-hand-pointer-o"></i></a></li>
+            </ul>
+            <form action="/search" method="get">
+                <input type="search" placeholder="输入关键字" value="" />
+                <input type="submit" value="搜索" />
+            </form>
+        </div>
+    </header>

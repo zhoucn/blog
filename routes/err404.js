@@ -3,11 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.redirect('/index');
+    res.end('404');
 });
 
-router.get('/index', function(req, res, next) {
-    res.render('index', { title: '周策能的个人博客' });
-});
 
 module.exports = router;
