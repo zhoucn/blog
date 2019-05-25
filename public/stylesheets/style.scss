@@ -32,10 +32,18 @@ a{
   display: inline-block;
   vertical-align: middle;
 }
+.v-top{
+  display: inline-block;
+  vertical-align: top;
+}
 
 header{
-  @include grad(#bd48ff, #9406ff);
-  div{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  & > div{
     font-size: 0;
     max-width: 1000px;
     margin: 0 auto;
@@ -50,6 +58,7 @@ header{
     ul{
       @extend .v-middle;
       li{
+        margin: 0 10px;
         display: inline-block;
         a{
           display: block;
@@ -59,24 +68,55 @@ header{
           font-weight: 600;
           padding: 0 20px;
           position: relative;
-          i{
+          span{
+            position: relative;
+            z-index: 2;
+            @include transition(all .5s);
+          }
+          .bone{
+            width: 80%;
+            height: 20px;
             position: absolute;
             top: 50%;
             left: 50%;
-            font-size: 0;
-            color: #ff06d5;
-            opacity: 1;
-            @include transition(all 1s);
+            z-index: 1;
             @include transform(translate(-50%, -50%));
-            &.fa{
-              font: normal normal normal 0px/1 FontAwesome;
+            .left, .right{
+              width: 18px;
+              height: 36px;
+              position: absolute;
+              top: 50%;
+              @include transform(translateY(-50%));
+            }
+            .left, .right{
+              &:before,&:after{
+                content: "";
+                display: block;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+              }
+            }
+            .left{
+              left: 0;
+              margin-left: -10px;
+            }
+            .right{
+              right: 0;
+              margin-right: -10px;
             }
           }
           &:hover{
-            //color: #9406ff;
-            i{
-              font-size: 60px;
-              opacity: 0;
+            span{
+              color: #d20a11;
+            }
+            .bone{
+              background-color: #fff;
+              .left, .right {
+                &:before, &:after {
+                  background-color: #fff;
+                }
+              }
             }
           }
         }
@@ -86,9 +126,7 @@ header{
       position: absolute;
       top: 50%;
       right: 10px;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
+      @include transform(translateY(-50%));
       input{
         @extend .v-middle;
         font-size: 14px;
@@ -101,14 +139,190 @@ header{
           outline: none;
         }
         &[type="submit"]{
+          cursor: pointer;
           width: 60px;
           line-height: 28px;
           padding: 0;
           color: #fff;
-          background-color: #ff06d5;
-          border: 1px solid #ff06d5;
+          background-color: #d20a11;
+          border: 1px solid #d20a11;
           border-radius: 0 12px 12px 0;
         }
+      }
+    }
+  }
+}
+
+.page{
+  margin: 10px 0;
+  text-align: right;
+  & > div{
+    text-align: center;
+    display: inline-block;
+    font-size: 0;
+    a{
+      font-size: 12px;
+      min-width: 30px;
+      line-height: 28px;
+      margin: 0 5px;
+      padding: 0 5px;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      @extend .v-top;
+      @include transition(all 0.6s);
+      &:hover{
+        color: #fff;
+        background-color: #000;
+      }
+    }
+    input{
+      width: 40px;
+      height: 28px;
+      padding: 0 5px;
+      margin-left: 10px;
+      border: 1px solid #000;
+      border-radius: 6px 0 0 6px;
+      @extend .v-top;
+    }
+    button{
+      color: #fff;
+      width: 50px;
+      line-height: 28px;
+      padding: 0;
+      border: 1px solid #d20a11;
+      background-color: #d20a11;
+      border-radius: 0 6px 6px 0;
+      @extend .v-top;
+    }
+  }
+}
+
+.container{
+  min-height: calc(100% - 100px);
+}
+
+footer{
+  height: 75px;
+  color: #fff;
+  padding-bottom: 25px;
+  position: relative;
+  background-color: #000;
+  ul{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: flex;
+    li{
+      flex: 1;
+      text-align: center;
+    }
+  }
+  .record{
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    span{
+      margin-right: 20px;
+    }
+  }
+}
+
+@keyframes top {
+  to{
+    background-position: center -378px;
+  }
+}
+
+.top{
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  width: 36px;
+  height: 76px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background: url("../images/top.png") no-repeat center 4px;
+  background-size: 70px;
+  &:hover{
+    @include animation(top steps(5) .8s infinite);
+  }
+}
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 90px 0 20px;
+  box-sizing: border-box;
+  .article{
+    padding-right: 170px;
+    li{
+      position: relative;
+      height: 100px;
+      margin-bottom: 20px;
+      a{
+        position: relative;
+        display: block;
+        .img{
+          width: 200px;
+          height: 100px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .content{
+          height: 100px;
+          overflow: hidden;
+          padding-left: 220px;
+          position: relative;
+          p{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp:3;
+            -webkit-box-orient: vertical;
+          }
+          .date{
+            position: absolute;
+            bottom: 0;
+            left: 220px;
+            color: #999;
+            font-size: 12px;
+            span:first-child{
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+    .aside{
+      width: 126px;
+      padding: 0 10px;
+      position: fixed;
+      margin-left: 830px;
+      border: 2px solid #d20a11;
+      border-radius: 5px;
+      overflow: hidden;
+      h3{
+        color: #fff;
+        margin: 0 -10px;
+        padding: 5px 10px;
+        background-color: #d20a11;
+        i{
+          margin-right: 10px;
+        }
+      }
+      a{
+        font-size: 12px;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin: 4px 0;
       }
     }
   }

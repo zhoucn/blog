@@ -32,3 +32,10 @@
   -moz-transition: $r;
   -o-transition: $r;
 }
+
+@mixin animation($r){
+  animation: $r;
+  -webkit-animation: $r;
+  -moz-animation: $r;
+  -o-animation: $r;
+}
