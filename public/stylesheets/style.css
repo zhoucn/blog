@@ -1,10 +1,13 @@
 @charset "UTF-8";
 html {
-  height: 100%; }
+  width: 100%;
+  height: 100%;
+  background-color: #eee; }
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1280px;
   height: 100%;
   overflow: auto;
   font: 14px Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif; }
@@ -22,7 +25,7 @@ a {
   color: #333;
   text-decoration: none; }
 
-.v-middle, header > div img, header > div ul, header > div form input {
+.v-middle, header form input {
   display: inline-block;
   vertical-align: middle; }
 
@@ -31,107 +34,62 @@ a {
   vertical-align: top; }
 
 header {
+  width: 180px;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  background-color: #000; }
+  bottom: 0;
+  z-index: 9;
+  background-color: #f6f6f6; }
   header > div {
-    font-size: 0;
+    height: 100px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
-    position: relative; }
+    position: relative;
+    background-color: #9b6dd3; }
     header > div img {
       width: 50px;
-      height: 50px;
-      margin-right: 20px; }
-    header > div ul li {
-      margin: 0 10px;
-      display: inline-block; }
-      header > div ul li a {
-        display: block;
-        line-height: 50px;
+      height: 50px; }
+  header ul li a {
+    display: block;
+    line-height: 50px;
+    font-size: 16px;
+    color: #666;
+    padding: 0 20px;
+    position: relative; }
+    header ul li a:hover {
+      background-color: #fff; }
+  header form {
+    border-top: 1px solid #eee;
+    font-size: 0;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center; }
+    header form input {
+      font-size: 14px; }
+      header form input[type="search"] {
+        width: 120px;
+        padding: 0 10px;
+        line-height: 28px;
+        border-radius: 12px 0 0 12px;
+        border: 1px solid #e5e5e5;
+        outline: none; }
+      header form input[type="submit"] {
         font-size: 14px;
+        cursor: pointer;
+        width: 50px;
+        line-height: 28px;
+        padding: 0;
         color: #fff;
-        font-weight: 600;
-        padding: 0 20px;
-        position: relative; }
-        header > div ul li a span {
-          position: relative;
-          z-index: 2;
-          transition: all 0.5s;
-          -webkit-transition: all 0.5s;
-          -moz-transition: all 0.5s;
-          -o-transition: all 0.5s; }
-        header > div ul li a .bone {
-          width: 80%;
-          height: 20px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          z-index: 1;
-          transform: translate(-50%, -50%);
-          -webkit-transform: translate(-50%, -50%);
-          -moz-transform: translate(-50%, -50%);
-          -o-transform: translate(-50%, -50%); }
-          header > div ul li a .bone .left, header > div ul li a .bone .right {
-            width: 18px;
-            height: 36px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -o-transform: translateY(-50%); }
-          header > div ul li a .bone .left:before, header > div ul li a .bone .left:after, header > div ul li a .bone .right:before, header > div ul li a .bone .right:after {
-            content: "";
-            display: block;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%; }
-          header > div ul li a .bone .left {
-            left: 0;
-            margin-left: -10px; }
-          header > div ul li a .bone .right {
-            right: 0;
-            margin-right: -10px; }
-        header > div ul li a:hover span {
-          color: #d20a11; }
-        header > div ul li a:hover .bone {
-          background-color: #fff; }
-          header > div ul li a:hover .bone .left:before, header > div ul li a:hover .bone .left:after, header > div ul li a:hover .bone .right:before, header > div ul li a:hover .bone .right:after {
-            background-color: #fff; }
-    header > div form {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -o-transform: translateY(-50%); }
-      header > div form input {
-        font-size: 14px; }
-        header > div form input[type="search"] {
-          width: 280px;
-          padding: 0 10px;
-          line-height: 28px;
-          border-radius: 12px 0 0 12px;
-          border: 1px solid #e5e5e5;
-          outline: none; }
-        header > div form input[type="submit"] {
-          cursor: pointer;
-          width: 60px;
-          line-height: 28px;
-          padding: 0;
-          color: #fff;
-          background-color: #d20a11;
-          border: 1px solid #d20a11;
-          border-radius: 0 12px 12px 0; }
+        background-color: #9b6dd3;
+        border: 1px solid #9b6dd3;
+        border-radius: 0 12px 12px 0; }
+        header form input[type="submit"]:hover {
+          opacity: 0.8; }
 
 .page {
   margin: 10px 0;
-  text-align: right; }
+  text-align: center; }
   .page > div {
     text-align: center;
     display: inline-block;
@@ -150,13 +108,15 @@ header {
       -o-transition: all 0.6s; }
       .page > div a:hover {
         color: #fff;
-        background-color: #000; }
+        border-color: #d20a11;
+        background-color: #d20a11; }
     .page > div input {
       width: 40px;
       height: 28px;
       padding: 0 5px;
       margin-left: 10px;
       border: 1px solid #000;
+      border-right: none;
       border-radius: 6px 0 0 6px; }
     .page > div button {
       color: #fff;
@@ -165,12 +125,17 @@ header {
       padding: 0;
       border: 1px solid #d20a11;
       background-color: #d20a11;
-      border-radius: 0 6px 6px 0; }
-
-.container {
-  min-height: calc(100% - 100px); }
+      border-radius: 0 6px 6px 0;
+      transition: all 0.6s;
+      -webkit-transition: all 0.6s;
+      -moz-transition: all 0.6s;
+      -o-transition: all 0.6s; }
+      .page > div button:hover {
+        border-color: #000;
+        background-color: #000; }
 
 footer {
+  padding-left: 180px;
   height: 75px;
   color: #fff;
   padding-bottom: 25px;
@@ -218,59 +183,72 @@ footer {
 
 .container {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 90px 0 20px;
-  box-sizing: border-box; }
-  .container .article {
-    padding-right: 170px; }
-    .container .article li {
+  margin: 0 160px 0 180px;
+  padding: 10px 0 10px 10px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: calc(100% - 100px);
+  background-color: #fff; }
+  .container .article li {
+    position: relative;
+    height: 100px;
+    margin-bottom: 10px; }
+    .container .article li a {
       position: relative;
-      height: 100px;
-      margin-bottom: 20px; }
-      .container .article li a {
-        position: relative;
-        display: block; }
-        .container .article li a .img {
-          width: 200px;
-          height: 100px;
-          position: absolute;
-          top: 0;
-          left: 0; }
-        .container .article li a .content {
-          height: 100px;
+      display: block; }
+      .container .article li a .img {
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      .container .article li a .content {
+        height: 100px;
+        overflow: hidden;
+        padding-left: 220px;
+        position: relative; }
+        .container .article li a .content p {
           overflow: hidden;
-          padding-left: 220px;
-          position: relative; }
-          .container .article li a .content p {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical; }
-          .container .article li a .content .date {
-            position: absolute;
-            bottom: 0;
-            left: 220px;
-            color: #999;
-            font-size: 12px; }
-            .container .article li a .content .date span:first-child {
-              margin-right: 20px; }
-    .container .article .aside {
-      width: 126px;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical; }
+        .container .article li a .content .date {
+          position: absolute;
+          bottom: 0;
+          left: 220px;
+          color: #999;
+          font-size: 12px; }
+          .container .article li a .content .date span:first-child {
+            margin-right: 20px; }
+  .container .aside-box {
+    margin-right: -160px;
+    width: 160px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -100px;
+    z-index: 9;
+    background-color: #f6f6f6; }
+    .container .aside-box .aside {
+      width: 150px;
       padding: 0 10px;
+      margin-left: 10px;
       position: fixed;
-      margin-left: 830px;
-      border: 2px solid #d20a11;
+      top: 0;
+      border: 2px solid #9b6dd3;
       border-radius: 5px;
-      overflow: hidden; }
-      .container .article .aside h3 {
+      overflow: hidden;
+      box-sizing: border-box;
+      background-color: #fff; }
+      .container .aside-box .aside h3 {
         color: #fff;
         margin: 0 -10px;
         padding: 5px 10px;
-        background-color: #d20a11; }
-        .container .article .aside h3 i {
+        background-color: #9b6dd3; }
+        .container .aside-box .aside h3 i {
           margin-right: 10px; }
-      .container .article .aside a {
+      .container .aside-box .aside a {
         font-size: 12px;
         display: block;
         white-space: nowrap;
