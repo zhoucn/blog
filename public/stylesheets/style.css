@@ -1,16 +1,21 @@
-@charset "UTF-8";
 html {
   width: 100%;
   height: 100%;
-  background-color: #eee; }
+  background-color: #8debfd;
+  overflow: hidden; }
 
 body {
   padding: 0;
   margin: 0 auto;
-  max-width: 1280px;
   height: 100%;
-  overflow: auto;
-  font: 14px Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif; }
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative; }
+
+.body {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1280px; }
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0; }
@@ -108,8 +113,8 @@ header {
       -o-transition: all 0.6s; }
       .page > div a:hover {
         color: #fff;
-        border-color: #d20a11;
-        background-color: #d20a11; }
+        border-color: #9b6dd3;
+        background-color: #9b6dd3; }
     .page > div input {
       width: 40px;
       height: 28px;
@@ -123,8 +128,8 @@ header {
       width: 50px;
       line-height: 28px;
       padding: 0;
-      border: 1px solid #d20a11;
-      background-color: #d20a11;
+      border: 1px solid #9b6dd3;
+      background-color: #9b6dd3;
       border-radius: 0 6px 6px 0;
       transition: all 0.6s;
       -webkit-transition: all 0.6s;
@@ -135,9 +140,9 @@ header {
         background-color: #000; }
 
 footer {
-  padding-left: 180px;
   height: 75px;
   color: #fff;
+  margin: 0 160px 0 190px;
   padding-bottom: 25px;
   position: relative;
   background-color: #000; }
@@ -157,8 +162,65 @@ footer {
     bottom: 5px;
     left: 0;
     right: 0; }
+    footer .record a {
+      color: #fff; }
     footer .record span {
       margin-right: 20px; }
+
+.bg-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  perspective: 1px; }
+
+.bg {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  width: 500%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background: url("../images/clouds.png") repeat; }
+  .bg.bg1 {
+    transform: translateZ(-1px) scale(2.2);
+    -webkit-transform: translateZ(-1px) scale(2.2);
+    -moz-transform: translateZ(-1px) scale(2.2);
+    -o-transform: translateZ(-1px) scale(2.2);
+    animation: move 40s alternate infinite;
+    -webkit-animation: move 40s alternate infinite;
+    -moz-animation: move 40s alternate infinite;
+    -o-animation: move 40s alternate infinite; }
+  .bg.bg2 {
+    transform: translateZ(-5px) scale(6.2);
+    -webkit-transform: translateZ(-5px) scale(6.2);
+    -moz-transform: translateZ(-5px) scale(6.2);
+    -o-transform: translateZ(-5px) scale(6.2);
+    animation: move 35s alternate-reverse infinite;
+    -webkit-animation: move 35s alternate-reverse infinite;
+    -moz-animation: move 35s alternate-reverse infinite;
+    -o-animation: move 35s alternate-reverse infinite; }
+  .bg.bg3 {
+    transform: translateZ(-8px) scale(9.2);
+    -webkit-transform: translateZ(-8px) scale(9.2);
+    -moz-transform: translateZ(-8px) scale(9.2);
+    -o-transform: translateZ(-8px) scale(9.2);
+    animation: move 50s alternate infinite;
+    -webkit-animation: move 50s alternate infinite;
+    -moz-animation: move 50s alternate infinite;
+    -o-animation: move 50s alternate infinite; }
+
+@keyframes move {
+  from {
+    margin-left: -50%; }
+  to {
+    margin-left: 50%; } }
 
 @keyframes top {
   to {
@@ -182,45 +244,44 @@ footer {
     -o-animation: top steps(5) 0.8s infinite; }
 
 .container {
-  max-width: 1000px;
-  margin: 0 160px 0 180px;
-  padding: 10px 0 10px 10px;
+  margin: 0 160px 0 190px;
   box-sizing: border-box;
-  position: relative;
-  min-height: calc(100% - 100px);
-  background-color: #fff; }
-  .container .article li {
-    position: relative;
-    height: 100px;
-    margin-bottom: 10px; }
-    .container .article li a {
+  position: relative; }
+  .container .article {
+    padding: 10px;
+    background-color: #fff; }
+    .container .article li {
       position: relative;
-      display: block; }
-      .container .article li a .img {
-        width: 200px;
-        height: 100px;
-        position: absolute;
-        top: 0;
-        left: 0; }
-      .container .article li a .content {
-        height: 100px;
-        overflow: hidden;
-        padding-left: 220px;
-        position: relative; }
-        .container .article li a .content p {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical; }
-        .container .article li a .content .date {
+      height: 100px;
+      margin-bottom: 10px; }
+      .container .article li a {
+        position: relative;
+        display: block; }
+        .container .article li a .img {
+          width: 200px;
+          height: 100px;
           position: absolute;
-          bottom: 0;
-          left: 220px;
-          color: #999;
-          font-size: 12px; }
-          .container .article li a .content .date span:first-child {
-            margin-right: 20px; }
+          top: 0;
+          left: 0; }
+        .container .article li a .content {
+          height: 100px;
+          overflow: hidden;
+          padding-left: 220px;
+          position: relative; }
+          .container .article li a .content p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; }
+          .container .article li a .content .date {
+            position: absolute;
+            bottom: 0;
+            left: 220px;
+            color: #999;
+            font-size: 12px; }
+            .container .article li a .content .date span:first-child {
+              margin-right: 20px; }
   .container .aside-box {
     margin-right: -160px;
     width: 160px;
@@ -228,14 +289,11 @@ footer {
     top: 0;
     right: 0;
     bottom: -100px;
-    z-index: 9;
-    background-color: #f6f6f6; }
+    z-index: 9; }
     .container .aside-box .aside {
       width: 150px;
       padding: 0 10px;
       margin-left: 10px;
-      position: fixed;
-      top: 0;
       border: 2px solid #9b6dd3;
       border-radius: 5px;
       overflow: hidden;
