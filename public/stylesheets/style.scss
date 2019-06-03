@@ -15,7 +15,6 @@ body{
   position: relative;
 }
 .body{
-  height: 100%;
   margin: 0 auto;
   max-width: 1280px;
 }
@@ -54,7 +53,7 @@ header{
   z-index: 9;
   background-color: #f6f6f6;
   & > div {
-    height: 100px;
+    height: 90px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
@@ -63,6 +62,15 @@ header{
     img {
       width: 50px;
       height: 50px;
+      @extend .v-middle;
+    }
+    h1{
+      color: #fff;
+      @extend .v-middle;
+    }
+    p{
+      color: #fff;
+      line-height: 50px;
     }
   }
   ul {
@@ -167,10 +175,8 @@ header{
 }
 
 footer{
-  height: 75px;
   color: #fff;
   margin: 0 160px 0 190px;
-  padding-bottom: 25px;
   position: relative;
   background-color: #000;
   ul{
@@ -185,12 +191,8 @@ footer{
   }
   .record{
     text-align: center;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 12px;
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
     a{
       color:#fff;
     }
@@ -269,11 +271,13 @@ footer{
   position: relative;
   .article{
     padding: 10px;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.9);
     li{
       position: relative;
       height: 100px;
       margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e5e5;
       a{
         position: relative;
         display: block;
@@ -316,7 +320,7 @@ footer{
     position: absolute;
     top: 0;
     right: 0;
-    bottom: -100px;
+    bottom: 0;
     z-index: 9;
     .aside{
       width: 150px;
