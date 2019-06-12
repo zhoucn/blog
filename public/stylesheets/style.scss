@@ -51,7 +51,7 @@ header{
   top: 0;
   bottom: 0;
   z-index: 9;
-  background-color: #f6f6f6;
+  background-color: rgba(246,246,246,0.8);
   & > div {
     height: 90px;
     max-width: 1000px;
@@ -83,8 +83,11 @@ header{
         padding: 0 20px;
         position: relative;
         &:hover {
-          background-color: #fff;
+          background-color: rgba(255,255,255,0.8);
         }
+      }
+      &.active{
+        background-color: rgba(255,255,255,0.8);
       }
     }
   }

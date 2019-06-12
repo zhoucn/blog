@@ -43,7 +43,7 @@ header {
   top: 0;
   bottom: 0;
   z-index: 9;
-  background-color: #f6f6f6; }
+  background-color: rgba(246, 246, 246, 0.8); }
   header > div {
     height: 90px;
     max-width: 1000px;
@@ -67,7 +67,9 @@ header {
     padding: 0 20px;
     position: relative; }
     header ul li a:hover {
-      background-color: #fff; }
+      background-color: rgba(255, 255, 255, 0.8); }
+  header ul li.active {
+    background-color: rgba(255, 255, 255, 0.8); }
   header form {
     border-top: 1px solid #eee;
     font-size: 0;
