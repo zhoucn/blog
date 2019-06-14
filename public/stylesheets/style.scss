@@ -354,3 +354,22 @@ footer{
     }
   }
 }
+
+.editor-box{
+  .editor{
+    width: 80%;
+    min-height: 500px;
+    margin: 20px auto;
+  }
+  .save{
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #9406ff;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border-color: #9406ff;
+  }
+}

@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 var testRouter = require('./routes/test');
+var threeRouter = require('./routes/three');
 var err404 = require('./routes/err404');
 var db = require('./db/createDb')
 var ueditor = require("ueditor")
@@ -37,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/test', testRouter);
+app.use('/three', threeRouter);
 app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function(req, res, next) {
     // ueditor 客户发起上传图片请求
     if(req.query.action === 'uploadimage'){
