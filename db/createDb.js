@@ -14,7 +14,7 @@ connection.connect(function(err) {
         console.error('连接错误: ' + err.stack);
         return;
     }
-    console.log('连接ID ' + connection.threadId);
+    // console.log('连接ID ' + connection.threadId);
 });
 
 connection.query('CREATE DATABASE IF NOT EXISTS ZCN_DB DEFAULT CHARSET utf8 COLLATE utf8_general_ci',function(err, rows){
